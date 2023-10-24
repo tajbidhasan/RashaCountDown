@@ -25,15 +25,17 @@ function showMessageAndHide(message) {
     const label = document.getElementById("message-label");
     label.innerText = message;
 
-    // Reset any previous styles
+    // Reset any previous styles and animations
     label.style.opacity = "1";
     label.classList.remove("grow-fade");
 
     // Force a reflow to reset animation
     void label.offsetWidth;
 
+    // Apply the animation
     label.classList.add("grow-fade");
 }
+
 
 
 function flyAway() {

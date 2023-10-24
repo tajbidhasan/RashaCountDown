@@ -7,7 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url('bgImage.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,14 +15,47 @@ body {
     /* A fallback color */
 }
 
+/* ... your existing styles ... */
+
 @media only screen and (max-width: 768px) {
-    body {
-        background-size: auto 100vh;
-        /* Adjust the height to the viewport height */
-        background-position: center top;
-        /* Position the image at the top center */
+
+    .countdown-container {
+        padding: 10px 20px;
+        /* Reduce the padding for mobile */
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        /* Smaller heading font size for mobile */
+    }
+
+    .countdown {
+        margin-top: 10px;
+        font-size: 1rem;
+        /* Smaller countdown font size for mobile */
+    }
+
+    #message-label {
+        font-size: 18px;
+        /* Smaller message label font size for mobile */
+    }
+
+    .actions {
+        flex-direction: column;
+        /* Stack buttons vertically for narrower screens */
+        gap: 5px;
+    }
+
+    button {
+        padding: 8px 16px;
+        /* Smaller padding for buttons on mobile */
+        font-size: 0.8rem;
+        /* Smaller button font size for mobile */
+        width: 100%;
+        /* Make buttons full width on mobile */
     }
 }
+
 
 .countdown-container {
     text-align: center;
@@ -95,6 +128,7 @@ button:active {
     color: #000000;
     /* A red tone for emphasis */
     transition: all 1s;
+    opacity: 0;
 }
 
 
@@ -167,6 +201,7 @@ button:active {
 .grow-fade {
     animation: growAndFade 2s forwards;
 }
+
 
 /* ... your existing styles ... */
 
