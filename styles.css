@@ -7,13 +7,21 @@ body {
     align-items: center;
     height: 100vh;
     background-image: url('bgImage.png');
-    background-size: contain;
-    /* This will cover the entire viewport */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #f3f4f6;
     /* A fallback color */
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-size: auto 100vh;
+        /* Adjust the height to the viewport height */
+        background-position: center top;
+        /* Position the image at the top center */
+    }
 }
 
 .countdown-container {
@@ -158,4 +166,39 @@ button:active {
 
 .grow-fade {
     animation: growAndFade 2s forwards;
+}
+
+/* ... your existing styles ... */
+
+/* Media query for screens up to 480px wide (covers most iPhone models in portrait mode) */
+@media only screen and (max-width: 480px) {
+
+    .countdown-container {
+        padding: 10px 20px;
+        /* Reduce padding */
+        font-size: 0.8rem;
+        /* Reduce font size */
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        /* Reduce font size for the main heading */
+    }
+
+    .countdown {
+        font-size: 1.2rem;
+        /* Reduce font size for the countdown */
+    }
+
+    button {
+        padding: 8px 16px;
+        /* Reduce button size */
+        font-size: 0.8rem;
+        /* Reduce button font size */
+    }
+
+    #message-label {
+        font-size: 20px;
+        /* Reduce font size for the label */
+    }
 }
