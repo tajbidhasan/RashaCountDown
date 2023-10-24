@@ -1,43 +1,122 @@
 body {
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-image: url('bgImage.png');
     background-size: contain;
-    /* Updated this line */
+    /* This will cover the entire viewport */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #f3f4f6;
-    /* A fallback color in case the image doesn't cover the entire viewport */
+    /* A fallback color */
 }
-
 
 .countdown-container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Made it slightly less transparent */
     padding: 20px 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Slightly stronger shadow */
     animation: fadeIn 1.5s;
+}
+
+h1 {
+    margin-top: 0;
+    color: #333;
 }
 
 .countdown {
     margin-top: 20px;
     font-size: 1.5rem;
+    color: #555;
     animation: bounce 1s infinite;
 }
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    /* Increased the gap a bit */
+}
+
+button {
+    padding: 12px 24px;
+    /* Adjusted padding for a larger button */
+    border: none;
+    border-radius: 6px;
+    /* Rounded corners a bit more */
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* Smoothens all transitions */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Added a subtle shadow */
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow on hover */
+}
+
+button:active {
+    background-color: #d704a6;
+    transform: scale(0.98);
+    /* Button slightly shrinks when clicked */
+}
+
+#message-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    /* Makes the text bold */
+    font-style: italic;
+    /* Makes the text italic */
+    color: #000000;
+    /* A red tone for emphasis */
+    transition: all 1s;
+}
+
 
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
+        /* Starts a bit below and fades in */
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
+}
+
+@keyframes flyAwayAnimation {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+.fly-away {
+    animation: flyAwayAnimation 1s forwards;
 }
 
 @keyframes bounce {
@@ -57,4 +136,26 @@ body {
     60% {
         transform: translateY(-5px);
     }
+}
+
+@keyframes growAndFade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(2.5);
+        /* Adjust this value if you want it to be bigger or smaller */
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.grow-fade {
+    animation: growAndFade 2s forwards;
 }

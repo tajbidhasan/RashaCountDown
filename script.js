@@ -21,4 +21,39 @@ function updateCountdown() {
     secondsElem.textContent = seconds;
 }
 
+function showMessageAndHide(message) {
+    const label = document.getElementById("message-label");
+    label.innerText = message;
+
+    // Reset any previous styles
+    label.style.opacity = "1";
+    label.classList.remove("grow-fade");
+
+    // Force a reflow to reset animation
+    void label.offsetWidth;
+
+    label.classList.add("grow-fade");
+}
+
+
+function flyAway() {
+    showMessageAndHide("Miss You");
+}
+
+function comeBack() {
+    showMessageAndHide("Come Back");
+}
+
+function pleaseCall() {
+    showMessageAndHide("Please Call");
+}
+
+function loveYou() {
+    showMessageAndHide("Love You");
+}
+
+function chamat() {
+    showMessageAndHide("Chamat?");
+}
+
 setInterval(updateCountdown, 1000);
